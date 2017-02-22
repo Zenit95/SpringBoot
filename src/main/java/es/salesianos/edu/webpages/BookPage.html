@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org">
+<head>
+</head>
+<body>
+
+	<div class="container">
+		
+		<div class="row">
+			<form wicket:id="formNewBook" class="form-group">
+				<div>
+
+
+					<span wicket:id="nameBookLabel" class="form-control">[nameBookLabel]</span>
+					<input wicket:id="title" type="text" class="form-control"></input> 
+					<span wicket:id="isbnBookLabel" class="form-control">[isbnBookLabel]</span>
+					<input wicket:id="isbn" type="text" class="form-control"></input>
+					<span wicket:id="authorBookLabel" class="form-control">[authorBookLabel]</span>
+					<input wicket:id="author" type="text" class="form-control"></input>
+					
+					<input type="submit" class="btn btn-primary">
+
+				</div>
+			</form>
+			
+			<div class="alert-info" wicket:id="feedbackMessage">[feedbackMessage]</div>
+			
+		</div>
+	</div>
+</body>
+</html>

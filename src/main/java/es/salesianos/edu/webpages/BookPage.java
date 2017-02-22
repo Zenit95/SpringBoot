@@ -10,26 +10,26 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
-import es.salesianos.edu.model.Author;
+import es.salesianos.edu.model.Book;
 import es.salesianos.edu.service.SimulacroService;
 
-public class AuthorPage extends WebPage {
+public class BookPage extends WebPage {
 
 	@SpringBean
 	SimulacroService simulacroService;
 
-	public AuthorPage() {
+	public BookPage() {
 
 
-		Form form = new Form("formNewAuthor", new CompoundPropertyModel(new Author())) {
+		Form form = new Form("formNewBook", new CompoundPropertyModel(new Book())) {
 
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				boolean isInserted = simulacroService.insert((Author) getModelObject());
+				boolean isInserted = simulacroService.insert((Book) getModelObject());
 				FeedbackMessage message;
 				if(isInserted){
-					message = new FeedbackMessage(this, "autor insertado", FeedbackMessage.INFO);
+					message = new FeedbackMessage(this, "libro insertado", FeedbackMessage.INFO);
 				} else {
 					message = new FeedbackMessage(this, "no se pudo insertar", FeedbackMessage.INFO);
 				}
@@ -37,11 +37,12 @@ public class AuthorPage extends WebPage {
 			}
 
 		};
-		form.add(new Label("nameAuthorLabel", getString("author.name")));
-		form.add(new Label("dateOfBirthLabel", getString("date.of.birth")));
-		form.add(new RequiredTextField("nameAuthor"));
-		DateTextField datetimePicker = new DateTextField("dateOfBirth", "yyyy-MM-dd");
-		form.add(datetimePicker);
+		form.add(new Label("nameBookLabel", getString("book.name")));
+		form.add(new Label("isbnBookLabel", getString("isbn.book")));
+		form.add(new Label("authorBookLabel", getString("author.book")));
+		form.add(new RequiredTextField("title"));
+		form.add(new RequiredTextField("isbn"));
+		form.add(new RequiredTextField("author"));
 		FeedbackPanel feedbackPanel = new FeedbackPanel("feedbackMessage");
 		feedbackPanel.setOutputMarkupId(true);
 		add(feedbackPanel);

@@ -8,7 +8,11 @@ public class HomePage extends WebPage {
 		BookmarkablePageLink bookmarkablePageLink1 = new BookmarkablePageLink("linkAuthorForm", AuthorPage.class);
 		BookmarkablePageLink bookmarkablePageLink2 = new BookmarkablePageLink("linkListAuthor",
 				ListAuthorPage.class);
+		BookmarkablePageLink bookmarkablePageLink3 = new BookmarkablePageLink("linkBookForm", BookPage.class);
+		BookmarkablePageLink bookmarkablePageLink4 = new BookmarkablePageLink("linkListBook", ListBookPage.class);
 		add(bookmarkablePageLink1);
 		add(bookmarkablePageLink2);
+		add(bookmarkablePageLink3);
+		add(bookmarkablePageLink4);
 	}
 }
