@@ -18,22 +18,22 @@ public class SimulacroService {
 	private AuthorRepository authorRespository = new AuthorRepository();
 	private BookRepository bookRepository = new BookRepository();
 	
-	public boolean insert(Author author) {
-		logger.debug("simulando insercion");
+	public boolean addAuthor(Author author) {
+		authorRespository.addAuthor(author);
 		return true;
 	}
 	
-	public boolean insert(Book book) {
-		logger.debug("simulando insercion");
-		return true;
-	}
-
-	public List searchAllAuthors(){
-		return authorRespository.searchAll();
+	public List searchAllAuthor(){
+		return authorRespository.searchAllAuthor();
 	}
 	
-	public List searchAllBooks(){
-		return bookRepository.searchAll();
+	public boolean addBook(Book book) {
+		bookRepository.addBook(book);
+		return true;
+	}
+	
+	public List searchAllBook(){
+		return bookRepository.searchAllBook();
 	}
 
 }

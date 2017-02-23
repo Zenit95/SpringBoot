@@ -26,7 +26,7 @@ public class AuthorPage extends WebPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				boolean isInserted = simulacroService.insert((Author) getModelObject());
+				boolean isInserted = simulacroService.addAuthor((Author) getModelObject());
 				FeedbackMessage message;
 				if(isInserted){
 					message = new FeedbackMessage(this, "autor insertado", FeedbackMessage.INFO);

@@ -48,7 +48,7 @@ public class ListBookPage extends WebPage {
 	private void initComponents() {
 		addForm();
 		addFeedBackPanel();
-		addListAuthorView();
+		//addListAuthorView();
 	}
 
 	private void addForm() {
@@ -79,7 +79,20 @@ public class ListBookPage extends WebPage {
 //				listAuthor.add(author1);
 //				listAuthor.add(author2);
 //				listAuthor.add(author3);
-				service.searchAllBooks();
+				//service.searchAllAuthor();
+				Book book = new Book();// service.newEntity()
+				book.setTitle(currentNameSearch);
+				listBook = service.searchAllBook();
+				ListView listview = new ListView("book-group", listBook) {
+					@Override
+					protected void populateItem(ListItem item) {
+						Book book = (Book) item.getModelObject();
+						item.add(new Label("title", book.getTitle()));
+						item.add(new Label("isbn", book.getIsbn()));
+						item.add(new Label("author", book.getAuthor()));
+					}
+				};
+				add(listview);
 			}
 		};
 		Button cancelButton = new Button("cancelbutton") {
@@ -110,21 +123,21 @@ public class ListBookPage extends WebPage {
 		add(feedbackPanel);
 	}
 
-	private void addListAuthorView() {
-		Book book = new Book();// service.newEntity()
-		book.setTitle(currentNameSearch);
-		listBook = service.searchAllBooks();
-		ListView listview = new ListView("book-group", listBook) {
-			@Override
-			protected void populateItem(ListItem item) {
-				Book book = (Book) item.getModelObject();
-				item.add(new Label("title", book.getTitle()));
-				item.add(new Label("isbn", book.getIsbn()));
-				item.add(new Label("author", book.getAuthor()));
-			}
-		};
-		add(listview);
-	}
+//	private void addListAuthorView() {
+//		Book book = new Book();// service.newEntity()
+//		book.setTitle(currentNameSearch);
+//		listBook = service.searchAllBook();
+//		ListView listview = new ListView("book-group", listBook) {
+//			@Override
+//			protected void populateItem(ListItem item) {
+//				Book book = (Book) item.getModelObject();
+//				item.add(new Label("title", book.getTitle()));
+//				item.add(new Label("isbn", book.getIsbn()));
+//				item.add(new Label("author", book.getAuthor()));
+//			}
+//		};
+//		add(listview);
+//	}
 
 
 }

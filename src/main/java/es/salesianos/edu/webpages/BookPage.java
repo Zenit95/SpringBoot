@@ -26,7 +26,7 @@ public class BookPage extends WebPage {
 			@Override
 			protected void onSubmit() {
 				super.onSubmit();
-				boolean isInserted = simulacroService.insert((Book) getModelObject());
+				boolean isInserted = simulacroService.addBook((Book) getModelObject());
 				FeedbackMessage message;
 				if(isInserted){
 					message = new FeedbackMessage(this, "libro insertado", FeedbackMessage.INFO);
