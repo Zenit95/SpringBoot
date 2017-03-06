@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+	<div class="row">
+		<form wicket:id="formListMenu" class="form-group">
+			<div>
+
+
+				<input wicket:id="nameAuthor" class="form-control"
+					placeholder="introduzca un nombre de un autor"></input> <input
+					type="submit" class="btn btn-primary">
+				<input type="submit" wicket:id="longanizabutton" value="Longaniza" />
+				<input type="submit" wicket:id="tofubutton" value="Tofu" />
+				<input type="submit" wicket:id="naranjabutton" value="Naranja" />
+				<input type="submit" wicket:id="totalbutton" value="Total" />
+			</div>
+		</form>
+	</div>
+
+	<div class="row">
+		<div class="alert-info" wicket:id="feedbackMessage">[feedbackMessage]</div>
+	</div>
+
+
+	<div wicket:id="element-group">
+		<span wicket:id="text"></span>
+	</div>
+
+</body>
+</html>
